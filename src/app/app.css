@@ -1,0 +1,23 @@
+div, header, footer, section, nav {
+    border: 1px solid rgb(90, 15, 15);
+}
+
+/* made the grid layout using https://grid.layoutit.com/ */
+.container { 
+    display: grid; 
+    grid-template-columns: 0.4fr 2.2fr 0.4fr;
+    grid-template-rows: 0.3fr 4fr 0.3fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". head ."
+      ". main ."
+      ". ui ."; 
+    justify-content: stretch; 
+    
+    background-color: rgb(133, 131, 131)
+
+  }
+  .main { grid-area: main; }
+  .head { grid-area: head; }
+  .ui { grid-area: ui; }
+
