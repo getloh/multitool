@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux';
-import {removeTodo, setComplete} from './todoSlice.js'
+import {removeTodo, toggleComplete} from './todoSlice.js'
 
 
 
@@ -11,15 +11,15 @@ const TodoItem = ({name, complete, id}) => {
     }
 
     const handleToggle = () => {
-        let check = document.getElementById("completeflag").checked;
-        dispatch(setComplete({id, check}))
+        let check = document.getElementById(id).checked;    // true if box is checked
+        dispatch(toggleComplete(id, check))                              // object ID
     }
 
     return (
-        <div key={id}>
+        <div>
             <li>{name}</li>
             <button onClick={handleRemove}>Remove task</button>
-            <input id="completeflag" type="checkbox" value={true} onClick={handleToggle}></input>
+            <input id={id} type="checkbox" value={true} onClick={handleToggle}></input>
             <label for="completeflag">Complete</label>
         </div>
     )

@@ -1,4 +1,4 @@
-
+import {createSlice} from '@reduxjs/toolkit';
 // actions
 export const addTodo = (task) => {       // Recieves a task object from todo
     return {
@@ -14,10 +14,11 @@ export const removeTodo = (id) => {     // Recieves id value from todoItem
     }
 };
 
-export const setComplete = (id, status) => {
+export const toggleComplete = (id, status) => {    // id, and true if box ticked, false if unticked
     return {
-        type: "todo/setComplete",
-        payload: [id, status]
+        type: "todo/toggleComplete",
+        payload: id,
+        status: status
     }
 }
 export const setuncomplete = (id) => {
@@ -50,34 +51,41 @@ const initialState = {
     taskField: ""
 }
 
-const todoReducer = (state = initialState, action) => {
-    switch (action.type){
-        case 'todo/addTodo':            // Adds a task via adding the object to the state.tasks array
+const sliceOptions = {
+    name: 'todo',
+    initialState: initialState,
+    reducers: {
+        addTodo: (state, action) => {
             return{
                 ...state, tasks: [...state.tasks, action.payload]
             }
-
-        case 'todo/removeTodo':         // Removes a task, via filtering out the id from state.tasks.id
+        },
+        removeTodo: (state, action) => {
             return {
                 ...state, tasks: [...state.tasks.filter(obj => obj.id !== action.payload)]
             }
-
-        case 'todo/setComplete':        // Sets .complete to be true on state
-            return {
-                ...state, tasks: []
-            }
-        case 'todo/setUncomplete':      // sets .complete to be false on state
-            return {
-                ...state, tasks: []
-            }
-
-        // Set the field which adds the task
-        case 'todo/setTask':
+        },
+        toggleComplete: (state, action) => {
+            let index = state.tasks.findIndex(obj => obj.id === action.payload);
+            
+                state.tasks[index].complete = action.status
+            
+        },
+        setTask: (state, action) => {
             return {
                 ...state, taskField: action.payload
             }
-        default: return state;
+        }
+
+
     }
+
+
 }
 
-export default todoReducer;
+const todoSlice = createSlice(sliceOptions)
+
+
+
+
+export default todoSlice.reducer;

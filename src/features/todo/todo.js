@@ -30,8 +30,6 @@ function Todo() {
     // The render
     return (
         <div>
-        {/* <h2>Urgent todos go here!</h2>
-            {todo.urgent.map(x => <li>{x.name}</li>)} */}
 
         <h2>The todos go here</h2>
         {todo.tasks.map (x => 
