@@ -14,6 +14,13 @@ export const modeTodo = () => {
     }
 
 }
+export const modeStopwatch = () => {
+    return {
+        type: "ui/modeStopwatch",
+        payload: "stopwatch"
+    }
+
+}
 
 
 // initial state
@@ -28,6 +35,9 @@ const uiReducer = (state= initialState, action) => {
             return {...state, mode: action.payload}
         }
         case "ui/modeTodo":{
+            return {...state, mode: action.payload}
+        }
+        case "ui/modeStopwatch":{
             return {...state, mode: action.payload}
         }
         default:{
