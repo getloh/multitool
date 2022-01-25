@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './stopwatch.css'
 
 // Uses React only - stopwatch function, counts minutes and seconds in seperate states
 
@@ -38,7 +37,7 @@ export default function Stopwatch() {
 
 
     return (
-        <div>
+        <div className="stopwatch">
             <div className="stopwatch-container">
                 <h1 id="stopwatch-text">{mins}:{secs<10? "0" + secs.toFixed(2) : secs.toFixed(2)} </h1>
             </div>
