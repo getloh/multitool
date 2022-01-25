@@ -149,6 +149,15 @@ transition: all 0.2s;
   font-size: 1.5rem;
 }
 
+.complete-item{
+  text-decoration: line-through;
+}
+
+.urgent-item{
+  font-weight: bold;
+  color:rgb(197, 1, 1)
+}
+
 /* ------------------------------------------
                 UI CSS
 --------------------------------------------*/

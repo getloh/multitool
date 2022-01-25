@@ -3,7 +3,7 @@ import {removeTodo, toggleComplete} from './todoSlice.js'
 
 
 
-const TodoItem = ({name, complete, id}) => {
+const TodoItem = ({name, complete, id, urgent}) => {
     const dispatch = useDispatch();
 
     const handleRemove = () => {
@@ -15,13 +15,22 @@ const TodoItem = ({name, complete, id}) => {
         dispatch(toggleComplete(id, check))                 // object ID
     }
 
+    let itemLogic = <h5>{name}</h5>;
+    if (urgent) {
+        itemLogic = <h5 className="urgent-item">{name}</h5>;
+    }
+    if (complete){
+        itemLogic = <h5 className="complete-item">{name}</h5>;
+    }
+
+
     return (
         <div className="todo-single">
             <div className="todo-left">
                 {/* <label for="completeflag">Complete</label> */}
-                <input id={id} type="checkbox" value={true} onClick={handleToggle}></input>
-
-                <h5>{name}</h5>
+                <input id={id} type="checkbox" value={true} onClick={handleToggle} ></input>
+                {itemLogic}
+                
             </div>
             
             <div>

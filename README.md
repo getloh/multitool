@@ -14,7 +14,9 @@ I initially started working on this multi-tool 'app' as a way to get used to Rea
 As time goes on, i'll document each feature and the relevant use case / background logic.
 
 ## Technologies Used
-- Javascript, CSS, JSX / HTML
+- HTML
+- CSS (with Bootstrap)
+- Javascript
 - React (and Create-React-App)
 - Redux + Redux Toolkit
 
@@ -38,7 +40,9 @@ Another React staple,
 I thought i'd experiment with adding some extra elements for additional conditional formatting, such as an 'urgent' property as well as the ability to mark as complete or remove the task after adding it.
 
 ## Screenshots
-Maybe when I actually do more CSS...
+![https://meng.s-ul.eu/gvxMeOZJ](https://meng.s-ul.eu/gvxMeOZJ)
+![https://meng.s-ul.eu/oAgpmtFF](https://meng.s-ul.eu/oAgpmtFF)
+![https://meng.s-ul.eu/6EW7FlHT](https://meng.s-ul.eu/6EW7FlHT)
 
 ## Usage
 If you actually want to run this you'll probably have to clone and then run via terminal (npm start).
